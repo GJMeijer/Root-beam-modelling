@@ -39,8 +39,9 @@ Note that therefore, in constrast to common geotech practice:
 ## Input parameter file - required parameters
 Required columns:
 
-| RunID | integer | - | Run identifier (ensure these are all unique values for every row) |
+| Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| RunID | integer | - | Run identifier (ensure these are all unique values for every row) |
 | ModelName | string | - | Name for this analysis. Name is used to create output directory with results |
 | NodeFile | string | - | File name with node input data, including .csv extension |
 | SegmentFile | string | - | File name with segment input data, including .csv extension |
@@ -64,5 +65,39 @@ Required columns:
 | uext_incmax | double | mm | Maximum displacement step size |
 | solve_tolerance | double | - | Solver tolerance of &lt;scipy.integrate.solve_bvp&gt; solver in Python |
 | SaveStep | integer | - | Save full root and soil data every &lt;SaveStep&gt; displacement step |
+
+## Root geometry
+The root architecture is described by two seperate files:
+* Nodal data   - This defined the position and displacement boundary conditions of individual nodes (points) in the geometry
+* Segment data - This defines the connections between two nodes. For each connection, segment properties such as stiffness of diameter are given
+Theoretically, there is no limit to the amount of segments, although it can be expected that the code will become less efficient with many segments (as the number of differential equations to solve increases)
+
+### Node input data format
+Required columns:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| NodeID | integer | - | Node identifier (ensure these are all unique values) |
+| X | double | mm | Global X-position of node |
+| Y | double | mm | Global Y-position of node |
+| bound_X | integer | - | X-displacement constrained (value=1) or free (0) |
+| bound_Y | integer | - | Y-displacement constrained (value=1) or free (0) |
+| bound_Theta | integer | - | rotation constrained (value=1) or free (0) |
+
+### Segment input data format
+Required columns:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| SegmentID | integer | - | Segment identifier (ensure these are all unique values) |
+| NodeID1 | double | - | Node identifier of node at start of segment |
+| NodeID2 | double | - | Node identifier of node at end of segment |
+| d | double | mm | Root diameter |
+| Et1 | double | MPa | Coefficient in root tensile stiffness ($\xi_1$ in paper) |
+| Et2 | double | - | Coefficient in root tensile stiffness ($\xi_2$ in paper) |
+| Et3 | double | MPa | Coefficient in root tensile stiffness ($\xi_3$ in paper) |
+| Eb1 | double | MPa | Coefficient in root bending stiffness ($\xi_1$ in paper) |
+| Eb2 | double | - | Coefficient in root bending stiffness ($\xi_2$ in paper) |
+| Eb3 | double | MPa | Coefficient in root bending stiffness ($\xi_3$ in paper) |
 
 
