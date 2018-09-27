@@ -38,7 +38,30 @@ Note that therefore, in constrast to common geotech practice:
 
 ## Input parameter file - required parameters
 Required columns:
+| RunID | integer | - | Run identifier (ensure these are all unique values for every row) |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| ModelName | string | - | Name for this analysis. Name is used to create output directory with results |
+| NodeFile | string | - | File name with node input data, including .csv extension |
+| SegmentFile | string | - | File name with segment input data, including .csv extension |
+| phi | double | rad | Soil peak angle of internal friction (used to calculate lateral resistance) |
+| phi_cs | double | rad | Soil critical state angle (used to calculate effect of soil confinement on additional shear resistance) |
+| delta | double | rad | Interface friction angle between soil and root |
+| gamma | double | N/mm3 | Soil effective unit weight |
+| K | double | - | Coefficient of lateral earth pressure |
+| sigmav0 | double | MPa | Vertical effective stress at the soil surface |
+| shearplane_param | double | mm | Shear plane thickness parameter (b_sh) in paper |
+| shearplane_depth | double | mm | Shear plane depth, at Y=0 |
+| shearplane_angle | double | rad | Shear plane angle |
+| n_node | integer | - | Number of nodes per segment |
+| n_step_max | integer | - | Maximum number of displacement steps |
+| n_iter_max | integer | - | maximum number of iterations (to find solution for a single displacement step) |
+| uext_inc0 | double | mm | Initial shear displacement step size |
+| uext_max | double | mm | Maximum shear displacement (analysis stops once this value is reached) |
+| uext_factor_increase | double | - | Multiplaction factor to automatically increase displacement step size if suitable |
+| uext_factor_decrease | double | - | Multiplaction factor to decrease displacement step if solution if solution not found |
+| uext_incmin | double | mm | Minimum displacement step size (if lower required, analysis stops) |
+| uext_incmax | double | mm | Maximum displacement step size |
+| solve_tolerance | double | - | Solver tolerance of &lt;scipy.integrate.solve_bvp&gt; solver in Python |
+| SaveStep | integer | - | Save full root and soil data every &lt;SaveStep&gt; displacement step |
 
-| Parameter | Type | Unit | Decription |
-|-|-|-|
-| RunID | Integer | - | Run identifier (ensure these are all unique values for every row)
+
