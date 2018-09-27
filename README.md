@@ -24,18 +24,17 @@ Executing required installed modules (apart from standard modules):
 * NumPy
 * MatPlotLib
 
-##########################
-## NOTES ON DATA FORMAT ##
-##########################
 
-DATA FORMAT
+# Notes on data format
+
+## Units
 Throughout the code, units used:
-- Length in millimeters [mm]
-- Force in newtons [N]
-- Angles in radians [rad]
+* Length in millimeters [mm]
+* Force in newtons [N]
+* Angles in radians [rad]
 Note that therefore, in constrast to common geotech practice:
-- Stesses and stiffnesses are in [MPa]
-- Unit weights are in [N/mm3]
+* Stesses and stiffnesses are in [MPa]
+* Unit weights are in [N/mm3]
 
 
 DATA FORMAT FOR - INPUT PARAMETERS FOR EVERY RUN FILE
