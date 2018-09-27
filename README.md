@@ -129,20 +129,20 @@ For every displacement step, a `.csv` is created containing the following fields
 
 | Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| s | double | mm | Local coordinate along the (displaced) root axis |
-| t | double | rad | Root rotation (root coordinate system) |
-| dt | double | rad/mm | Root curvature (dt/ds) |
-| ddt | double | rad/mm2 | Derivative of root curvature (d^2t/ds^2) |
-| eps | double | - | Root axial strain |
-| u | double | mm | Root axial displacement (root coordinate system) |
-| w | double | mm | Root lateral displacement (root coordinate system) |
-| x | double | mm | Root x-position (root coordinate system) |
-| y | double | mm | Root y-position (root coordinate system) |
-| Xr | double | mm | Root X-position (global coordinate system) |
-| Yr | double | mm | Root Y-position (global coordinate system) |
-| umob | double | mm | Relative axial soil-root displacement (delta u in paper) |
-| wmob | double | mm | Relative lateral soil-root displacement (delta w in paper) |
-| SegmentID | integer | - | Segment identifier |
+| `s` | double | mm | Local coordinate along the (displaced) root axis |
+| `t` | double | rad | Root rotation (root coordinate system) |
+| `dt` | double | rad/mm | Root curvature (dt/ds) |
+| `ddt` | double | rad/mm2 | Derivative of root curvature (d^2t/ds^2) |
+| `eps` | double | - | Root axial strain |
+| `u` | double | mm | Root axial displacement (root coordinate system) |
+| `w` | double | mm | Root lateral displacement (root coordinate system) |
+| `x` | double | mm | Root x-position (root coordinate system) |
+| `y` | double | mm | Root y-position (root coordinate system) |
+| `Xr` | double | mm | Root X-position (global coordinate system) |
+| `Yr` | double | mm | Root Y-position (global coordinate system) |
+| `umob` | double | mm | Relative axial soil-root displacement (delta u in paper) |
+| `wmob` | double | mm | Relative lateral soil-root displacement (delta w in paper) |
+| `SegmentID` | integer | - | Segment identifier |
 
 ## Output - Soil
 For every displacement step, a `.csv` is created containing the following fields:
