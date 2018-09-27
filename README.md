@@ -1,5 +1,5 @@
 # Root beam modelling
-Notes 27/09/2018, GJMeijer
+Notes 27/09/2018, GJMeijer  
 Python code to analyse the behaviour of roots loaded in direct shear by solving the (large deformation) bending equation, taking i to account both axial and bending stiffness.
 
 ## Publication details
