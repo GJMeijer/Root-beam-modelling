@@ -20,9 +20,9 @@ In the first lines, some user-defined settings are required
 ## Python requirements
 Code is written in Python 3
 Executing required installed modules (apart from standard modules):
-* SciPy
-* NumPy
-* MatPlotLib
+* `SciPy`
+* `NumPy`
+* `MatPlotLib`
 
 
 # Notes on data format
@@ -41,30 +41,30 @@ Required columns:
 
 | Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| RunID | integer | - | Run identifier (ensure these are all unique values for every row) |
+| `RunID` | integer | - | Run identifier (ensure these are all unique values for every row) |
 | `ModelName` | string | - | Name for this analysis. Name is used to create output directory with results |
-| NodeFile | string | - | File name with node input data, including .csv extension |
-| SegmentFile | string | - | File name with segment input data, including .csv extension |
-| phi | double | rad | Soil peak angle of internal friction (used to calculate lateral resistance) |
-| phi_cs | double | rad | Soil critical state angle (used to calculate effect of soil confinement on additional shear resistance) |
-| delta | double | rad | Interface friction angle between soil and root |
-| gamma | double | N/mm3 | Soil effective unit weight |
-| K | double | - | Coefficient of lateral earth pressure |
-| sigmav0 | double | MPa | Vertical effective stress at the soil surface |
-| shearplane_param | double | mm | Shear plane thickness parameter (b_sh) in paper |
-| shearplane_depth | double | mm | Shear plane depth, at Y=0 |
-| shearplane_angle | double | rad | Shear plane angle |
-| n_node | integer | - | Number of nodes per segment |
-| n_step_max | integer | - | Maximum number of displacement steps |
-| n_iter_max | integer | - | maximum number of iterations (to find solution for a single displacement step) |
-| uext_inc0 | double | mm | Initial shear displacement step size |
-| uext_max | double | mm | Maximum shear displacement (analysis stops once this value is reached) |
-| uext_factor_increase | double | - | Multiplaction factor to automatically increase displacement step size if suitable |
-| uext_factor_decrease | double | - | Multiplaction factor to decrease displacement step if solution if solution not found |
-| uext_incmin | double | mm | Minimum displacement step size (if lower required, analysis stops) |
-| uext_incmax | double | mm | Maximum displacement step size |
-| solve_tolerance | double | - | Solver tolerance of &lt;scipy.integrate.solve_bvp&gt; solver in Python |
-| SaveStep | integer | - | Save full root and soil data every &lt;SaveStep&gt; displacement step |
+| `NodeFile` | string | - | File name with node input data, including .csv extension |
+| `SegmentFile` | string | - | File name with segment input data, including .csv extension |
+| `phi` | double | rad | Soil peak angle of internal friction (used to calculate lateral resistance) |
+| `phi_cs` | double | rad | Soil critical state angle (used to calculate effect of soil confinement on additional shear resistance) |
+| `delta` | double | rad | Interface friction angle between soil and root |
+| `gamma` | double | N/mm3 | Soil effective unit weight |
+| `K` | double | - | Coefficient of lateral earth pressure |
+| `sigmav0` | double | MPa | Vertical effective stress at the soil surface |
+| `shearplane_param` | double | mm | Shear plane thickness parameter (b_sh) in paper |
+| `shearplane_depth` | double | mm | Shear plane depth, at Y=0 |
+| `shearplane_angle` | double | rad | Shear plane angle |
+| `n_node` | integer | - | Number of nodes per segment |
+| `n_step_max` | integer | - | Maximum number of displacement steps |
+| `n_iter_max` | integer | - | maximum number of iterations (to find solution for a single displacement step) |
+| `uext_inc0` | double | mm | Initial shear displacement step size |
+| `uext_max` | double | mm | Maximum shear displacement (analysis stops once this value is reached) |
+| `uext_factor_increase` | double | - | Multiplaction factor to automatically increase displacement step size if suitable |
+| `uext_factor_decrease` | double | - | Multiplaction factor to decrease displacement step if solution if solution not found |
+| `uext_incmin` | double | mm | Minimum displacement step size (if lower required, analysis stops) |
+| `uext_incmax` | double | mm | Maximum displacement step size |
+| `solve_tolerance` | double | - | Solver tolerance of &lt;scipy.integrate.solve_bvp&gt; solver in Python |
+| `SaveStep` | integer | - | Save full root and soil data every &lt;SaveStep&gt; displacement step |`
 
 ## Root geometry
 The root architecture is described by two seperate files:
@@ -77,28 +77,28 @@ Required columns:
 
 | Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| NodeID | integer | - | Node identifier (ensure these are all unique values) |
-| X | double | mm | Global X-position of node |
-| Y | double | mm | Global Y-position of node |
-| bound_X | integer | - | X-displacement constrained (value=1) or free (0) |
-| bound_Y | integer | - | Y-displacement constrained (value=1) or free (0) |
-| bound_Theta | integer | - | rotation constrained (value=1) or free (0) |
+| `NodeID` | integer | - | Node identifier (ensure these are all unique values) |
+| `X` | double | mm | Global X-position of node |
+| `Y` | double | mm | Global Y-position of node |
+| `bound_X` | integer | - | X-displacement constrained (value=1) or free (0) |
+| `bound_Y` | integer | - | Y-displacement constrained (value=1) or free (0) |
+| `bound_Theta` | integer | - | rotation constrained (value=1) or free (0) |
 
 ### Segment input data format
 Required columns:
 
 | Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| SegmentID | integer | - | Segment identifier (ensure these are all unique values) |
-| NodeID1 | double | - | Node identifier of node at start of segment |
-| NodeID2 | double | - | Node identifier of node at end of segment |
-| d | double | mm | Root diameter |
-| Et1 | double | MPa | Coefficient in root tensile stiffness (\( \xi_1 \) in paper) |
-| Et2 | double | - | Coefficient in root tensile stiffness (\xi_2 in paper) |
-| Et3 | double | MPa | Coefficient in root tensile stiffness (\xi_3 in paper) |
-| Eb1 | double | MPa | Coefficient in root bending stiffness (\xi_1 in paper) |
-| Eb2 | double | - | Coefficient in root bending stiffness (\xi_2 in paper) |
-| Eb3 | double | MPa | Coefficient in root bending stiffness (\xi_3 in paper) |
+| `SegmentID` | integer | - | Segment identifier (ensure these are all unique values) |
+| `NodeID1` | double | - | Node identifier of node at start of segment |
+| `NodeID2` | double | - | Node identifier of node at end of segment |
+| `d` | double | mm | Root diameter |
+| `Et1` | double | MPa | Coefficient in root tensile stiffness (\( \xi_1 \) in paper) |
+| `Et2` | double | - | Coefficient in root tensile stiffness (\xi_2 in paper) |
+| `Et3` | double | MPa | Coefficient in root tensile stiffness (\xi_3 in paper) |
+| `Eb1` | double | MPa | Coefficient in root bending stiffness (\xi_1 in paper) |
+| `Eb2` | double | - | Coefficient in root bending stiffness (\xi_2 in paper) |
+| `Eb3` | double | MPa | Coefficient in root bending stiffness (\xi_3 in paper) |
 
 # General remarks on how the code works
 * The program loads all input data in input parameter file specified
