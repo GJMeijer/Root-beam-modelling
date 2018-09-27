@@ -15,11 +15,11 @@ This code can be used to reproduce some of the shear tests with ABS described in
 
 
 ## Quickstart
+Ensure that all python files (`.py`) and input files (`.csv`) are placed in the same directory.
 Analysis can be run by executing the `Main.py` script.
-In the first lines, some user-defined settings are required
+In the first lines of `Main.py`, some user-defined settings are required
 * The name of the input parameter file, including extension
 * Some booleans to decide whether results should be plotted, saved etc.
-
 
 ## Python requirements
 Code is written in Python 3
