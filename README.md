@@ -93,11 +93,11 @@ Required columns:
 | NodeID1 | double | - | Node identifier of node at start of segment |
 | NodeID2 | double | - | Node identifier of node at end of segment |
 | d | double | mm | Root diameter |
-| Et1 | double | MPa | Coefficient in root tensile stiffness ($\xi_1$ in paper) |
-| Et2 | double | - | Coefficient in root tensile stiffness ($\xi_2$ in paper) |
-| Et3 | double | MPa | Coefficient in root tensile stiffness ($\xi_3$ in paper) |
-| Eb1 | double | MPa | Coefficient in root bending stiffness ($\xi_1$ in paper) |
-| Eb2 | double | - | Coefficient in root bending stiffness ($\xi_2$ in paper) |
-| Eb3 | double | MPa | Coefficient in root bending stiffness ($\xi_3$ in paper) |
+| Et1 | double | MPa | Coefficient in root tensile stiffness (\xi_1 in paper) |
+| Et2 | double | - | Coefficient in root tensile stiffness (\xi_2 in paper) |
+| Et3 | double | MPa | Coefficient in root tensile stiffness (\xi_3 in paper) |
+| Eb1 | double | MPa | Coefficient in root bending stiffness (\xi_1 in paper) |
+| Eb2 | double | - | Coefficient in root bending stiffness (\xi_2 in paper) |
+| Eb3 | double | MPa | Coefficient in root bending stiffness (\xi_3 in paper) |
 
 
