@@ -11,16 +11,6 @@ This code belong to journal publication:
 > 201x, volume x, issue x, page xx-xx  
 > DOI: xxx
 
-This code can be used to reproduce some of the shear tests with ABS described in this paper (Liang et al.)
-
-
-## Quickstart
-Ensure that all python files (`.py`) and input files (`.csv`) are placed in the same directory.
-Analysis can be run by executing the `Main.py` script.
-In the first lines of `Main.py`, some user-defined settings are required
-* The name of the input parameter file, including extension
-* Some booleans to decide whether results should be plotted, saved etc.
-
 ## Python requirements
 Code is written in Python 3
 Executing required installed modules (apart from standard modules):
@@ -28,6 +18,14 @@ Executing required installed modules (apart from standard modules):
 * `NumPy`
 * `MatPlotLib`
 
+## Quickstart
+This code can be used to reproduce some of the shear tests in dry sand with ABS root analogues described in the above mentioned paper (modelling experiments by Liang et al.)  To do this:
+* Ensure that all python files (`.py`) and input files (`.csv`) are placed in the same directory.  
+* Execute the `Main.py` script.  
+
+In the first lines of `Main.py`, some user-defined settings are required
+* The name of the input parameter file, including extension. In the providede example, this is preset to `Input_parameters.csv`
+* Some booleans to decide whether results should be plotted, saved etc. In the provided example, output data file are written (`data_save = True`) but result plots are not shown (`plot_show = False`) nor saved (`plot_save = False`).
 
 # Notes on data format
 
