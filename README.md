@@ -112,4 +112,4 @@ When no solutions can be found, the displacement step is decreased (multiplying 
 The displacement step is multiplied by `uext_factor_increase` when steady solutions are found systematically, but will never be larger than `uext_incmax`.
 The analysis stops when no solution can be found within acceptable step sizes, or when the final displacement `uext_max` is reached
 * The set of differential equations is written in a set of first order differential equations, as is a requirement for the `solve_bvp` solver in SciPy. All differential equations are normalised by segment length.
-* The order of variables is \theta
+* The order of variables is: theta, dtheta/ds. d^2theta/ds^2, eps, u, w. When there are multiple segments, these are added in sequence of occurance in the `dsegm` segment data dictionary (so first all variables for the the first segments, than all those for the second etc.)
