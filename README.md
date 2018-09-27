@@ -42,7 +42,7 @@ Required columns:
 | Parameter | Type | Unit | Description |
 |----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | RunID | integer | - | Run identifier (ensure these are all unique values for every row) |
-| ModelName | string | - | Name for this analysis. Name is used to create output directory with results |
+| `ModelName` | string | - | Name for this analysis. Name is used to create output directory with results |
 | NodeFile | string | - | File name with node input data, including .csv extension |
 | SegmentFile | string | - | File name with segment input data, including .csv extension |
 | phi | double | rad | Soil peak angle of internal friction (used to calculate lateral resistance) |
