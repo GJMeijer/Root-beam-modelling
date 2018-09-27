@@ -117,3 +117,79 @@ The displacement step is multiplied by `uext_factor_increase` when steady soluti
 The analysis stops when no solution can be found within acceptable step sizes, or when the final displacement `uext_max` is reached
 * The set of differential equations is written in a set of first order differential equations, as is a requirement for the `solve_bvp` solver in SciPy. All differential equations are normalised by segment length.
 * The order of variables is: theta, dtheta/ds. d^2theta/ds^2, eps, u, w. When there are multiple segments, these are added in sequence of occurance in the `dsegm` segment data dictionary (so first all variables for the the first segments, than all those for the second etc.)
+
+# Outputs
+Depending on the output settings in `Main.py`, output will be generated and saved. 
+When `data_save` equals `True`, the code prints output `.csv` files to a new directory `Results`. 
+Subfolders will be created based on the `ModelName` and `RunID` given in the input parameter file.
+Data will be saved for every `SaveStep` displacement step for both soil and root, as well as summary data for the whole analyses.
+
+## Output - Root
+For every displacement step, a `.csv` is created containing the following fields:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| s | double | mm | Local coordinate along the (displaced) root axis |
+| t | double | rad | Root rotation (root coordinate system) |
+| dt | double | rad/mm | Root curvature (dt/ds) |
+| ddt | double | rad/mm2 | Derivative of root curvature (d^2t/ds^2) |
+| eps | double | - | Root axial strain |
+| u | double | mm | Root axial displacement (root coordinate system) |
+| w | double | mm | Root lateral displacement (root coordinate system) |
+| x | double | mm | Root x-position (root coordinate system) |
+| y | double | mm | Root y-position (root coordinate system) |
+| Xr | double | mm | Root X-position (global coordinate system) |
+| Yr | double | mm | Root Y-position (global coordinate system) |
+| umob | double | mm | Relative axial soil-root displacement (delta u in paper) |
+| wmob | double | mm | Relative lateral soil-root displacement (delta w in paper) |
+| SegmentID | integer | - | Segment identifier |
+
+## Output - Soil
+For every displacement step, a `.csv` is created containing the following fields:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| `Xs` | double | mm | Soil X-position (global coordinate system) |
+| `Ys` | double | mm | Soil Y-position (global coordinate system) |
+| `SegmentID` | integer | - | Segment identifier |
+
+## Output - Summary
+Three summary data files are outputted
+* `ModelName` + `_Results_ShearForceDisp.csv`:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| `StepID` | integer | mm | Displacement step identifier |
+| `uext` | double | mm | Shear displacement |
+| `F_total` | double | N | Total root-reinforcement in middle of shear plane |
+
+* `ModelName` + `_Results_ShearReinforcement.csv`:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `StepID` | integer | mm | Displacement step identifier |
+| `SegmentID` | integer | - | Segment identifier |
+| `F_direct` | double | N | Direct contribution of force in root to shear resistance (force component along shear displacement direction) |
+| `F_comfine` | double | N | Additional normal force on shear plane due to roots (positive force compresses soil further) |
+| `F_total` | double | N | Total root-reinforcement in middle of shear plane |
+
+* `ModelName` + `_Results_Stresses.csv`:
+
+| Parameter | Type | Unit | Description |
+|----------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| `StepID` | integer | mm | Displacement step identifier |
+| `SegmentID` | integer | - | Segment identifier |
+| `sig_ax_shearplane` | double | MPa | Axial stress at shear plane |
+| `sig_be_shearplane` | double | MPa | Bending stress at shear plane |
+| `sig_sh_shearplane` | double | MPa | Max. shear stress at shear plane |
+| `sig_ax_max` | double | MPa | Max axial stress in segment |
+| `sig_be_max` | double | MPa | Max bending stress in segment |
+| `sig_sh_max` | double | MPa | Max shear stress in segment |
+| `sig_fi_max` | double | MPa | Max stress in ultimate fibre in segment |
+| `sig_fi_max_ax` | double | MPa | Axial stress component of `sig_fi_max` |
+| `sig_fi_max_be` | double | MPa | Bending stress component of `sig_fi_max` |
+| `X_sig_ax_max` | double | mm | Global (displaced) X-position where `sig_ax_max` occurs |
+| `X_sig_be_max` | double | mm | Global (displaced) X-position where `sig_be_max` occurs |
+| `X_sig_sh_max` | double | mm | Global (displaced) X-position where `sig_sh_max` occurs |
+| `X_sig_fi_max` | double | mm | Global (displaced) X-position where `sig_fi_max` occurs |
+
