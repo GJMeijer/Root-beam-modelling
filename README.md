@@ -29,16 +29,19 @@ Executing required installed modules (apart from standard modules):
 
 ## Units
 Throughout the code, units used:
-* Length in millimeters [mm]
-* Force in newtons [N]
-* Angles in radians [rad]
+* Length in millimeters (mm)
+* Force in newtons (N)
+* Angles in radians (rad)
 Note that therefore, in constrast to common geotech practice:
-* Stesses and stiffnesses are in [MPa]
-* Unit weights are in [N/mm3]
+* Stesses and stiffnesses are in (MPa)
+* Unit weights are in (N/mm3)
 
-
-DATA FORMAT FOR - INPUT PARAMETERS FOR EVERY RUN FILE
+## Input parameter file - required parameters
 Required columns:
+| Parameter | Type | Unit | Decription |
+|-|-|-|
+| RunID | Integer | - | Run identifier (ensure these are all unique values for every row)
+
 - RunID			[integer]	[-]	Run identifier (ensure these are all unique values for every row)
 - ModelName		[string]	[-]	Name for this analysis. Name is used to create output directory with results
 - NodeFile		[string]	[-]	File name with node input data, including .csv extension
