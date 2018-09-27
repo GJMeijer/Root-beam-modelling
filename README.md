@@ -1,12 +1,12 @@
 # Root beam modelling
 
 ## Publication details
-This code belong to publication:
-    Analysis of coupled axial and lateral deformation of roots in soil
-    GJ Meijer, D Muir Wood, JA Knappett, AG Bengough, T Liang
-    International Journal for Analytical and Numerical Methods in Geomechanics
-    201x, volume x, issue x, page xx-xx
-    DOI: xxx
+This code belong to publication:  
+    Analysis of coupled axial and lateral deformation of roots in soil  
+    GJ Meijer, D Muir Wood, JA Knappett, AG Bengough, T Liang  
+    International Journal for Analytical and Numerical Methods in Geomechanics  
+    201x, volume x, issue x, page xx-xx  
+    DOI: xxx  
 This code can be used to reproduce some of the shear tests with ABS described in this paper (Liang et al.)
 
 
