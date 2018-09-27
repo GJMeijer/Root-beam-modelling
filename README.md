@@ -3,10 +3,10 @@
 ## Publication details
 This code belong to publication:
     Analysis of coupled axial and lateral deformation of roots in soil
-	  GJ Meijer, D Muir Wood, JA Knappett, AG Bengough, T Liang
-	  International Journal for Analytical and Numerical Methods in Geomechanics
-	  201x, volume x, issue x, page xx-xx
-	  DOI: xxx
+    GJ Meijer, D Muir Wood, JA Knappett, AG Bengough, T Liang
+    International Journal for Analytical and Numerical Methods in Geomechanics
+    201x, volume x, issue x, page xx-xx
+    DOI: xxx
 This code can be used to reproduce some of the shear tests with ABS described in this paper (Liang et al.)
 
 
@@ -100,4 +100,14 @@ Required columns:
 | Eb2 | double | - | Coefficient in root bending stiffness (\xi_2 in paper) |
 | Eb3 | double | MPa | Coefficient in root bending stiffness (\xi_3 in paper) |
 
-
+# General remarks on how the code works
+* The program loads all input data in input parameter file specified
+Every line in this file represents a single analysis (i.e. a single direct shear tests)
+Required parameters are given above, as are node and segment parameters for the root architecture
+Subsequently, the code runs through every run in sequence
+* The set of differential equations and boundary conditions is solved for every displacement step. Initial step size is <uext_inc0>
+The initial guess required is based on the last solution
+When no solutions can be found, the displacement step is decreased (multiplying current step times <uext_factor_decrease>) to increase the chance that the system will be solved.
+* If the displacement step becomes too small (smaller than <uext_incmin>), the analysis for this run will automatically stop.
+The displacement step is multiplied by <uext_factor_increase> when steady solutions are found systematically, but will never be larger than <uext_incmax>
+The analysis stops when no solution can be found within acceptable step sizes, or when the final displacement <uext_max> is reached
