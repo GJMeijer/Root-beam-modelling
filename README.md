@@ -105,9 +105,11 @@ Required columns:
 Every line in this file represents a single analysis (i.e. a single direct shear tests)
 Required parameters are given above, as are node and segment parameters for the root architecture
 Subsequently, the code runs through every run in sequence
-* The set of differential equations and boundary conditions is solved for every displacement step. Initial step size is <uext_inc0>
+* The set of differential equations and boundary conditions is solved for every displacement step. Initial step size is 'uext_inc0'
 The initial guess required is based on the last solution
-When no solutions can be found, the displacement step is decreased (multiplying current step times <uext_factor_decrease>) to increase the chance that the system will be solved.
-* If the displacement step becomes too small (smaller than <uext_incmin>), the analysis for this run will automatically stop.
-The displacement step is multiplied by <uext_factor_increase> when steady solutions are found systematically, but will never be larger than <uext_incmax>
-The analysis stops when no solution can be found within acceptable step sizes, or when the final displacement <uext_max> is reached
+When no solutions can be found, the displacement step is decreased (multiplying current step times 'uext_factor_decrease') to increase the chance that the system will be solved.
+* If the displacement step becomes too small (smaller than 'uext_incmin'), the analysis for this run will automatically stop.
+The displacement step is multiplied by <uext_factor_increase> when steady solutions are found systematically, but will never be larger than 'uext_incmax'.
+The analysis stops when no solution can be found within acceptable step sizes, or when the final displacement 'uext_max' is reached
+* The set of differential equations is written in a set of first order differential equations, as is a requirement for the 'solve_bvp' solver in SciPy. All differential equations are normalised by segment length.
+* The order of variables is \theta
