@@ -1,4 +1,5 @@
 # Root beam modelling
+Notes 27/09/2018, GJMeijer
 
 ## Publication details
 This code belong to publication:  
